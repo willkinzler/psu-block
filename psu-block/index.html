@@ -1,28 +1,102 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Put your description here.">
   <base href="/">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px 70px;
+    }
+
+    .psu-block {
+      width: calc(33.33% - 20px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .psu-block[state='stateTwo'] {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+
+    .psu-block[state='stateThree'] {
+      background-color: #0072C6;
+      color: #fff;
+    }
+
+    .psu-block[state='stateFour'], .psu-block[state='stateSix'] {
+      background-image: url('your-image-url-here');
+      background-size: cover;
+      color: #fff;
+    }
+
+    .psu-block[state='stateSix'] {
+      padding-bottom: 10px;
+    }
+
+    .psu-block .lineshape {
+      color: #1e407c;
+      font-size: 1.9px;
+      margin-top: 20px;
+    }
+
+    .psu-block[state='stateOne'] .lineshape {
+      color: #fff;
+      background-color: #1e407c;
+    }
+
+    .psu-block .link {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-top: 10px;
+    }
+
+    .psu-block:hover .link {
+      transform: scale(1.1);
     }
   </style>
   <title>psu-block</title>
 </head>
 
 <body>
-  <psu-block></psu-block>
+  <div class="container">
+    <psu-block stateOne boxtext1="88,000+ students"></psu-block>
+    <psu-block stateTwo boxtext1="58%" lineshape="-" boxtext2="Of students are Pennsylvania residents."></psu-block>
+    <psu-block stateThree boxtext1="Students from 50 states and 145 countries"></psu-block>
+    <psu-block stateFour boxtext1="Check out Undergraduate Admission statistics" link="https://admissions.psu.edu/apply/statistics/"></psu-block>
+    <psu-block stateOne boxtext1="Nearly 10,000 international students"></psu-block>
+    <psu-block stateTwo boxtext1="39%" lineshape="-" boxtext2="Of students are from a diverse background"></psu-block>
+    <psu-block stateFive boxtext1="7,900+ faculty across all campuses"></psu-block>
+    <psu-block stateFive boxtext1="759,000+ alumni"></psu-block>
+    <psu-block stateSix boxtext1="Check out Undergraduate Admission statistics" link="https://datadigest.psu.edu/"></psu-block>
+  </div>
 
   <script type="module" src="./src/psu-block.js"></script>
 </body>
-
 </html>
