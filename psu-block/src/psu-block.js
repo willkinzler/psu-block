@@ -3,20 +3,37 @@ import { LitElement, html, css, property } from 'lit-element';
 const logoUrl = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class PsuBlock extends LitElement {
-  @property({ type: String, reflect: true }) lineShape;
-  @property({ type: String, reflect: true }) link;
+  static get properties() {
+    return {
 
-  @property({ type: String, reflect: true }) textContent1;
-  @property({ type: String, reflect: true }) textContent2;
+  
+    lineshape:{ type: String, Reflect: true },
+    link: { type: String, reflect: true },
 
-  @property({ type: Boolean, reflect: true }) isStateOne;
-  @property({ type: Boolean, reflect: true }) isStateTwo;
-  @property({ type: Boolean, reflect: true }) isStateThree;
-  @property({ type: Boolean, reflect: true }) isStateFour;
-  @property({ type: Boolean, reflect: true }) isStateFive;
-  @property({ type: Boolean, reflect: true }) isStateSix;
+    textContent1: { type: String, reflect: true },
+    textContent2: { type: String, reflect: true },
 
+    isStateOne: { type: Boolean, reflect: true },
+    isStateTwo: { type: Boolean, reflect: true },
+    isStateThree: { type: Boolean, reflect: true },
+    isStateFour: { type: Boolean, reflect: true },
+    isStateFive: { type: Boolean, reflect: true },
+    isStateSix: { type: Boolean, reflect: true },
+
+  };
+}
   static styles = css`
+
+    :host {
+        background-color: #fff;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+        padding: 20px;
+        font-size: 1rem;
+        color: #333;
+        /*hardcode height and width of block to make square */
+      }
+  
     :host([textContent1]) .content {
       font-family: 'Roboto', sans-serif;
       font-size: 2.2rem;
@@ -33,6 +50,7 @@ class PsuBlock extends LitElement {
       font-weight: 600;
       padding-top: 13px;
       z-index: 2;
+      /* add border-top here */
     }
 
     .lineshape {
@@ -58,27 +76,39 @@ class PsuBlock extends LitElement {
     }
 
     .link {
-      padding-left: 365px;
+      justify-content: flex-end;
+      margin-right: 10px;
     }
 
-    .card[state='stateThree'] {
+    :host([stateOne]) {
+      background-color: #1e407c;
+      color: #FFFFFF;
+    }
+
+    :host([stateTwo]) {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+
+    :host([stateThree]) {
       background-image: linear-gradient(to bottom, #144fb6, #0b2344);
       font-size: .5rem;
       color: white;
     }
 
-    .card[state='stateFour'] {
+
+    :host([stateFour]) {
       color: white;
       background-image: url(https://www.psu.edu/psu-edu-assets/images/power-facts/penn-state-tuition.jpg);
       background-size: cover;
     }
 
-    .card[state='stateFive'] {
+    :host([stateFive]) {
       background-color: #001e44;
       color: #FFFFFF;
     }
 
-    .card[state='stateSix'] {
+    :host([stateSix]) {
       color: white;
       background-image: url(https://datadigest.psu.edu/files/2020/05/FallCampus2016-11.jpg);
       background-size: cover;
@@ -86,10 +116,34 @@ class PsuBlock extends LitElement {
     }
 
 
-    :host(:hover) .link {
+    :host(:hover) .link>a>svg {
       transform: scale(1.3);
-      padding-right: 400px;
-      padding-bottom: 20px;
+    }
+
+    :host([stateSix]) {
+      padding-bottom: 10px;
+    }
+
+    :host .lineshape {
+      color: #1e407c;
+      font-size: 1.9px;
+      margin-top: 20px;
+    }
+
+    :host([stateOne]) .lineshape {
+      color: #fff;
+      background-color: #1e407c;
+    }
+
+    :host .link {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-top: 10px;
+    }
+
+    :host:hover .link {
+      transform: scale(1.1);
     }
   `;
 
