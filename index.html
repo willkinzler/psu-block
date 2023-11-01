@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: black;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 20px;
+    }
+
+    psu-block{
+      margin: 0;
+    }
+  </style>
+  <title>psu-block</title>
+</head>
+
+<body>
+  <div class="container">
+    <psu-block stateOne textContent1="88,000+ students"></psu-block>
+    <psu-block stateTwo textContent1="58%" lineshape="-" textContent2="Of students are Pennsylvania residents."></psu-block>
+    <psu-block stateThree textContent1="Students from 50 states and 145 countries"></psu-block>
+    <psu-block stateFour textContent1="Check out Undergraduate Admission statistics" link="https://admissions.psu.edu/apply/statistics/"></psu-block>
+    <psu-block stateOne textContent1="Nearly 10,000 international students"></psu-block>
+    <psu-block stateTwo textContent1="39%" lineshape="-" textContent2="Of students are from a diverse background"></psu-block>
+    <psu-block stateFive textContent1="7,900+ faculty across all campuses"></psu-block>
+    <psu-block stateFive textContent1="759,000+ alumni"></psu-block>
+    <psu-block stateSix textContent1="See Penn State's Data Digest dashboards" link="https://datadigest.psu.edu/"></psu-block>
+  </div>
+
+  <script type="module" src="./src/psu-block.js"></script>
+</body>
+</html>
