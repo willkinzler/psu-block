@@ -32,6 +32,8 @@ class PsuBlock extends LitElement {
         font-size: 1rem;
         color: #333;
         /*hardcode height and width of block to make square */
+        height: 400px;
+        width: 400px;
       }
   
     :host([textContent1]) .content {
@@ -50,7 +52,9 @@ class PsuBlock extends LitElement {
       font-weight: 600;
       padding-top: 13px;
       z-index: 2;
-      /* add border-top here */
+      border-top: solid;
+      border-top-color: #1e407c;
+      border-top-width: 3px;
     }
 
     .lineshape {
